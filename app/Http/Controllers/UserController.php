@@ -323,7 +323,7 @@ class UserController extends Controller
 
             // SendWelcomeEmail::dispatch($user);
             
-            // event(new UserRegistered($user));
+            event(new UserRegistered($user));
 
             $token = $user->createToken('API Token')->plainTextToken;
 
