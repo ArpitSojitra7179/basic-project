@@ -461,6 +461,23 @@ class UserController extends Controller
         ]);
     }
 
+    public function Aggregations() 
+    {
+        try {
+            $total_amount = User::where('role', 'admin')->sum('credit');
+
+            return response()->json([
+                'All User total credit' => $total_amount,
+            ], 200);
+        } catch (\Exception $e) {
+            report($e);
+
+            return response()->json([
+                'message' => 'Something went wrong.',
+            ], 500);
+        }
+    }
+
     public function update(Request $request, User $user)
     {
         try {

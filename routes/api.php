@@ -58,6 +58,7 @@ Route::controller(UserController::class)->prefix('user')->group(function () {
 
     Route::get('/start-chain', 'chaining');
     Route::get('/start-batch', 'batchprocessUser');
+    Route::get('/total-amount', 'Aggregations');
    
    Route::get('car/{user}', 'sendCarDetails');
 });
